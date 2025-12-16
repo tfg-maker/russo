@@ -52,7 +52,7 @@ const groups = [
       { pt: "perguntar", ru: "спрашивать" },
       { pt: "responder", ru: "отвечать" },
       { pt: "escrever", ru: "писать" },
-      { pt: "apagar", ru: "" },
+      { pt: "apagar", ru: "стирать" },
       { pt: "errar", ru: "ошибаться" },
       { pt: "acertar", ru: "попадать" }
     ]
