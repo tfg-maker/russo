@@ -268,11 +268,17 @@ function renderList() {
     const input = document.createElement("input");
     input.placeholder = "Digite em russo…";
 
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
     const btnShow = document.createElement("button");
     btnShow.textContent = "👁️";
 
     const btnAudio = document.createElement("button");
     btnAudio.textContent = "🔊";
+
+    actions.append(btnShow, btnAudio);
+
 
     // Validação em tempo real
     input.addEventListener("input", () => {
@@ -298,7 +304,7 @@ function renderList() {
       playAudio(word.ru);
     });
 
-    row.append(label, input, btnShow, btnAudio);
+    row.append(label, input, actions);
     listEl.appendChild(row);
   });
 }
