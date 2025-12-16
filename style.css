@@ -1,0 +1,107 @@
+:root {
+  --bg: #f5f5f5;
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --border: #dcdcdc;
+  --green: #2e7d32;
+  --green-bg: #e7f6ea;
+  --red: #c62828;
+  --red-bg: #fdeaea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: var(--text);
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.lista {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.pt {
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.input.correct {
+  border-color: var(--green);
+  background: var(--green-bg);
+}
+
+.input.wrong {
+  border-color: var(--red);
+  background: var(--red-bg);
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #efefef;
+}
+
+@media (max-width: 600px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+}
