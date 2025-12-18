@@ -121,6 +121,22 @@ body {
   gap: 8px;
 }
 
+#resetAll {
+  margin-left: auto;
+  border: 1px solid #df5050;
+  background: #df5050;
+  border-radius: 100rem;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+}
+
+#resetAll:hover {
+  background: #bb3d3d;
+}
+
 
 @media (max-width: 600px) {
 

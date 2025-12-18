@@ -197,6 +197,16 @@ const groups = [
 
 ];
 
+/***********************
+ * HELPERS
+ ***********************/
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+function storageKey(groupId, pt) {
+  return `ru_${groupId}_${pt}`;
+}
 
 /***********************
  * ELEMENTOS
@@ -256,9 +266,11 @@ function renderTabs() {
  ***********************/
 function renderList() {
   listEl.innerHTML = "";
-  const group = groups.find(g => g.id === activeGroup);
 
-  group.words.forEach(word => {
+  const group = groups.find(g => g.id === activeGroup);
+  const shuffledWords = shuffle(group.words);
+
+  shuffledWords.forEach(word => {
     const row = document.createElement("div");
     row.className = "word";
 
@@ -267,6 +279,9 @@ function renderList() {
 
     const input = document.createElement("input");
     input.placeholder = "Digite em russo…";
+
+    const saved = localStorage.getItem(storageKey(group.id, word.pt));
+    if (saved) input.value = saved;
 
     const actions = document.createElement("div");
     actions.className = "actions";
@@ -279,27 +294,34 @@ function renderList() {
 
     actions.append(btnShow, btnAudio);
 
-
-    // Validação em tempo real
+    // Validação justa
     input.addEventListener("input", () => {
       const value = input.value.trim().toLowerCase();
       const correct = word.ru.toLowerCase();
 
       input.classList.remove("correct", "wrong");
 
-      if (!value) return;
+      if (!value) {
+        localStorage.removeItem(storageKey(group.id, word.pt));
+        return;
+      }
 
-      input.classList.add(value === correct ? "correct" : "wrong");
+      if (value === correct) {
+        input.classList.add("correct");
+        localStorage.setItem(storageKey(group.id, word.pt), value);
+      } else {
+        input.classList.add("wrong");
+        localStorage.setItem(storageKey(group.id, word.pt), value);
+      }
     });
 
-    // Mostrar resposta
     btnShow.addEventListener("click", () => {
       input.value = word.ru;
       input.classList.remove("wrong");
       input.classList.add("correct");
+      localStorage.setItem(storageKey(group.id, word.pt), word.ru);
     });
 
-    // Áudio
     btnAudio.addEventListener("click", () => {
       playAudio(word.ru);
     });
@@ -308,6 +330,15 @@ function renderList() {
     listEl.appendChild(row);
   });
 }
+
+/***********************
+ * RESET GERAL
+ ***********************/
+document.getElementById("resetAll").addEventListener("click", () => {
+  if (!confirm("Resetar todo o progresso?")) return;
+  localStorage.clear();
+  renderList();
+});
 
 /***********************
  * INIT
