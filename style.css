@@ -41,7 +41,6 @@ body {
 .tabs {
   display: flex;
   gap: 8px;
-  margin-bottom: 2rem;
   overflow: auto;
   padding-block: 1rem;
 }
@@ -102,6 +101,12 @@ body {
   background: #f4433614;
 }
 
+.word input.revealed {
+  border: 2px solid #f4b400;
+  background: #f4b40022;
+}
+
+
 .word button {
   padding: 6px;
   border-radius: 100rem;
@@ -137,6 +142,15 @@ body {
   background: #bb3d3d;
 }
 
+.progress {
+  padding: 1rem 1.5rem;
+  background-color: #def4ff;
+  margin: 1rem 0 2rem 0;
+  border-radius: 100rem;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
 
 @media (max-width: 600px) {
 

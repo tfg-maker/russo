@@ -54,7 +54,9 @@ const groups = [
       { pt: "escrever", ru: "писать" },
       { pt: "apagar", ru: "стирать" },
       { pt: "errar", ru: "ошибаться" },
-      { pt: "acertar", ru: "попадать" }
+      { pt: "acertar", ru: "попадать" },
+      { pt: "aprender", ru: "учиться" },
+      { pt: "conversar", ru: "разговаривать" }
     ]
   },
 
@@ -67,10 +69,28 @@ const groups = [
     words: [
       { pt: "ir", ru: "идти" },
       { pt: "vir / chegar", ru: "приходить" },
-      { pt: "sair", ru: "уходить" },
+      { pt: "entrar", ru: "входить" },
+      { pt: "sair (ir embora)", ru: "уходить" },
+      { pt: "sair (para fora)", ru: "выходить" },
       { pt: "andar", ru: "ходить" },
       { pt: "viajar", ru: "путешествовать" },
-      { pt: "ficar", ru: "оставаться" }
+      { pt: "ficar", ru: "оставаться" },
+    ]
+  },
+
+  /* =====================
+       DIREÇÃO
+    ====================== */
+  {
+    id: "direção",
+    label: "Direção",
+    words: [
+      { pt: "direita", ru: "право" },
+      { pt: "esquerda", ru: "лево" },
+      { pt: "cima", ru: "вверх" },
+      { pt: "baixo", ru: "вниз" },
+      { pt: "frente", ru: "вперёд" },
+      { pt: "trás", ru: "назад" }
     ]
   },
 
@@ -87,7 +107,9 @@ const groups = [
       { pt: "usar", ru: "использовать" },
       { pt: "mudar", ru: "менять" },
       { pt: "tocar (instrumento)", ru: "играть" },
-      { pt: "ligar (telefone)", ru: "звонить" }
+      { pt: "ligar (telefone)", ru: "звонить" },
+      { pt: "tentar", ru: "пытаться" },
+      { pt: "largar", ru: "бросать" }
     ]
   },
 
@@ -157,6 +179,30 @@ const groups = [
   },
 
   /* =====================
+     CORPO HUMANO
+  ====================== */
+  {
+    id: "corpo",
+    label: "Corpo Humano",
+    words: [
+      { pt: "cabeça", ru: "голова" },
+      { pt: "pescoço", ru: "шея" },
+      { pt: "olho", ru: "глаз" },
+      { pt: "boca", ru: "рот" },
+      { pt: "lábio", ru: "губа" },
+      { pt: "nariz", ru: "нос" },
+      { pt: "orelha", ru: "ухо" },
+      { pt: "braço", ru: "рука" },
+      { pt: "perna", ru: "нога" },
+      { pt: "mão", ru: "кисть" },
+      { pt: "pé", ru: "стопа" },
+      { pt: "dedo (mão)", ru: "палец" },
+      { pt: "dedo (pé)", ru: "палец ноги" },
+      { pt: "cabelo", ru: "волосы" }
+    ]
+  },
+
+  /* =====================
      NÚMEROS
   ====================== */
   {
@@ -197,33 +243,40 @@ const groups = [
 
 ];
 
-/***********************
- * HELPERS
- ***********************/
-function shuffle(array) {
-  return [...array].sort(() => Math.random() - 0.5);
-}
 
-function storageKey(groupId, pt) {
-  return `ru_${groupId}_${pt}`;
-}
 
 /***********************
  * ELEMENTOS
  ***********************/
 const tabsEl = document.getElementById("tabs");
 const listEl = document.getElementById("wordList");
+const progressEl = document.getElementById("progress");
 
 let activeGroup = groups[0].id;
 let voices = [];
 
 /***********************
- * VOZ (Web Speech API)
+ * LOCAL STORAGE
+ ***********************/
+function getProgress() {
+  return JSON.parse(localStorage.getItem("progress")) || {};
+}
+
+function saveProgress(progress) {
+  localStorage.setItem("progress", JSON.stringify(progress));
+}
+
+function resetProgress() {
+  localStorage.removeItem("progress");
+  renderList();
+}
+
+/***********************
+ * VOZ
  ***********************/
 function loadVoices() {
   voices = speechSynthesis.getVoices();
 }
-
 speechSynthesis.onvoiceschanged = loadVoices;
 loadVoices();
 
@@ -238,6 +291,22 @@ function playAudio(text) {
 
   speechSynthesis.cancel();
   speechSynthesis.speak(utterance);
+}
+
+/***********************
+ * HELPERS
+ ***********************/
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
+function updateProgressUI(group) {
+  const progress = getProgress();
+  const correct = progress[group.id]
+    ? Object.keys(progress[group.id]).length
+    : 0;
+
+  progressEl.textContent = `${correct} / ${group.words.length}`;
 }
 
 /***********************
@@ -268,9 +337,12 @@ function renderList() {
   listEl.innerHTML = "";
 
   const group = groups.find(g => g.id === activeGroup);
-  const shuffledWords = shuffle(group.words);
+  const words = shuffle(group.words);
+  const progress = getProgress();
 
-  shuffledWords.forEach(word => {
+  updateProgressUI(group);
+
+  words.forEach(word => {
     const row = document.createElement("div");
     row.className = "word";
 
@@ -279,9 +351,6 @@ function renderList() {
 
     const input = document.createElement("input");
     input.placeholder = "Digite em russo…";
-
-    const saved = localStorage.getItem(storageKey(group.id, word.pt));
-    if (saved) input.value = saved;
 
     const actions = document.createElement("div");
     actions.className = "actions";
@@ -294,34 +363,44 @@ function renderList() {
 
     actions.append(btnShow, btnAudio);
 
-    // Validação justa
+    // restaurar estado salvo
+    if (progress[group.id] && progress[group.id][word.pt]) {
+      input.value = word.ru;
+      input.classList.add("correct");
+    }
+
+    // validação justa
     input.addEventListener("input", () => {
       const value = input.value.trim().toLowerCase();
       const correct = word.ru.toLowerCase();
 
-      input.classList.remove("correct", "wrong");
+      input.classList.remove("correct", "wrong", "revealed");
 
-      if (!value) {
-        localStorage.removeItem(storageKey(group.id, word.pt));
-        return;
-      }
+      if (!value) return;
 
       if (value === correct) {
         input.classList.add("correct");
-        localStorage.setItem(storageKey(group.id, word.pt), value);
+
+        progress[group.id] = progress[group.id] || {};
+
+        if (!progress[group.id][word.pt]) {
+          progress[group.id][word.pt] = true;
+          saveProgress(progress);
+          updateProgressUI(group);
+        }
       } else {
         input.classList.add("wrong");
-        localStorage.setItem(storageKey(group.id, word.pt), value);
       }
     });
 
+    // mostrar resposta (amarelo)
     btnShow.addEventListener("click", () => {
       input.value = word.ru;
-      input.classList.remove("wrong");
-      input.classList.add("correct");
-      localStorage.setItem(storageKey(group.id, word.pt), word.ru);
+      input.classList.remove("wrong", "correct");
+      input.classList.add("revealed");
     });
 
+    // áudio
     btnAudio.addEventListener("click", () => {
       playAudio(word.ru);
     });
@@ -332,16 +411,20 @@ function renderList() {
 }
 
 /***********************
- * RESET GERAL
+ * RESET GERAL (se existir)
  ***********************/
-document.getElementById("resetAll").addEventListener("click", () => {
-  if (!confirm("Resetar todo o progresso?")) return;
-  localStorage.clear();
-  renderList();
-});
+const resetBtn = document.getElementById("resetAll");
+if (resetBtn) {
+  resetBtn.addEventListener("click", () => {
+    if (confirm("Resetar todo o progresso?")) {
+      resetProgress();
+    }
+  });
+}
 
 /***********************
  * INIT
  ***********************/
 renderTabs();
 renderList();
+
