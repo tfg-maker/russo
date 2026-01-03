@@ -46,7 +46,7 @@ const groups = [
     id: "estudo",
     label: "Estudo & Comunicação",
     words: [
-      { pt: "estudar", ru: "учиться" },
+      { pt: "estudar", ru: "учить" },
       { pt: "falar", ru: "говорить" },
       { pt: "ler", ru: "читать" },
       { pt: "perguntar", ru: "спрашивать" },
@@ -54,43 +54,9 @@ const groups = [
       { pt: "escrever", ru: "писать" },
       { pt: "apagar", ru: "стирать" },
       { pt: "errar", ru: "ошибаться" },
-      { pt: "acertar", ru: "попадать" },
-      { pt: "aprender", ru: "учиться" },
-      { pt: "conversar", ru: "разговаривать" }
-    ]
-  },
-
-  /* =====================
-     MOVIMENTO
-  ====================== */
-  {
-    id: "movimento",
-    label: "Movimento",
-    words: [
-      { pt: "ir", ru: "идти" },
-      { pt: "vir / chegar", ru: "приходить" },
-      { pt: "entrar", ru: "входить" },
-      { pt: "sair (ir embora)", ru: "уходить" },
-      { pt: "sair (para fora)", ru: "выходить" },
-      { pt: "andar", ru: "ходить" },
-      { pt: "viajar", ru: "путешествовать" },
-      { pt: "ficar", ru: "оставаться" },
-    ]
-  },
-
-  /* =====================
-       DIREÇÃO
-    ====================== */
-  {
-    id: "direção",
-    label: "Direção",
-    words: [
-      { pt: "direita", ru: "право" },
-      { pt: "esquerda", ru: "лево" },
-      { pt: "cima", ru: "вверх" },
-      { pt: "baixo", ru: "вниз" },
-      { pt: "frente", ru: "вперёд" },
-      { pt: "trás", ru: "назад" }
+      { pt: "acertar", ru: "правильно ответить" },
+      { pt: "aprender", ru: "выучить" },
+      { pt: "conversar", ru: "разговаривать" },
     ]
   },
 
@@ -109,22 +75,44 @@ const groups = [
       { pt: "tocar (instrumento)", ru: "играть" },
       { pt: "ligar (telefone)", ru: "звонить" },
       { pt: "tentar", ru: "пытаться" },
-      { pt: "largar", ru: "бросать" }
+      { pt: "largar", ru: "бросать" },
+      { pt: "acertar (alvo)", ru: "попадать" }
     ]
   },
 
   /* =====================
-     EMOÇÕES / RELAÇÕES
+      EMOÇÕES E ESTADOS (O que eu sinto)
   ====================== */
   {
-    id: "relacoes",
-    label: "Relações",
+    id: "emocoes",
+    label: "Emoções & Estados",
     words: [
-      { pt: "amar", ru: "любить" },
-      { pt: "beijar", ru: "целовать" },
-      { pt: "abraçar", ru: "обнимать" },
+      { pt: "sorrir", ru: "улыбаться" },
+      { pt: "rir", ru: "смеяться" },
+      { pt: "chorar", ru: "плакать" },
+      { pt: "preocupar-se", ru: "волноваться" },
+      { pt: "ter medo", ru: "бояться" },
+      { pt: "alegrar-se", ru: "радоваться" },
+      { pt: "irritar-se", ru: "злиться" },
+      { pt: "esperar (esperança)", ru: "надеяться" },
+      { pt: "sentir falta / saudade", ru: "скучать" }
+    ]
+  },
+
+  /* =====================
+      INTERAÇÃO SOCIAL (O que eu faço com os outros)
+  ====================== */
+  {
+    id: "interacao",
+    label: "Interação Social",
+    words: [
       { pt: "pedir desculpas", ru: "извиняться" },
-      { pt: "ajudar", ru: "помогать" }
+      { pt: "ajudar", ru: "помогать" },
+      { pt: "conhecer (alguém)", ru: "знакомиться" }, // Reflexivo também!
+      { pt: "abraçar", ru: "обнимать" },
+      { pt: "beijar", ru: "целовать" },
+      { pt: "prometer", ru: "обещать" },
+      { pt: "agradecer", ru: "благодарить" } // Verbo essencial!
     ]
   },
 
@@ -179,7 +167,7 @@ const groups = [
   },
 
   /* =====================
-     CORPO HUMANO
+      CORPO HUMANO
   ====================== */
   {
     id: "corpo",
@@ -192,13 +180,44 @@ const groups = [
       { pt: "lábio", ru: "губа" },
       { pt: "nariz", ru: "нос" },
       { pt: "orelha", ru: "ухо" },
-      { pt: "braço", ru: "рука" },
-      { pt: "perna", ru: "нога" },
-      { pt: "mão", ru: "кисть" },
-      { pt: "pé", ru: "стопа" },
-      { pt: "dedo (mão)", ru: "палец" },
-      { pt: "dedo (pé)", ru: "палец ноги" },
+      { pt: "mão / braço", ru: "рука" },
+      { pt: "pé / perna", ru: "нога" },
+      { pt: "dedo", ru: "палец" },
       { pt: "cabelo", ru: "волосы" }
+    ]
+  },
+
+  /* =====================
+     MOVIMENTO
+  ====================== */
+  {
+    id: "movimento",
+    label: "Movimento",
+    words: [
+      { pt: "ir", ru: "идти" },
+      { pt: "vir / chegar", ru: "приходить" },
+      { pt: "entrar", ru: "входить" },
+      { pt: "sair (ir embora)", ru: "уходить" },
+      { pt: "sair (para fora)", ru: "выходить" },
+      { pt: "andar", ru: "ходить" },
+      { pt: "viajar", ru: "путешествовать" },
+      { pt: "ficar", ru: "оставаться" },
+    ]
+  },
+
+  /* =====================
+       DIREÇÃO
+    ====================== */
+  {
+    id: "direção",
+    label: "Direção",
+    words: [
+      { pt: "direita", ru: "право" },
+      { pt: "esquerda", ru: "лево" },
+      { pt: "cima", ru: "вверх" },
+      { pt: "baixo", ru: "вниз" },
+      { pt: "frente", ru: "вперёд" },
+      { pt: "trás", ru: "назад" }
     ]
   },
 
@@ -242,7 +261,6 @@ const groups = [
   }
 
 ];
-
 
 
 /***********************
