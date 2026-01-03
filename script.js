@@ -56,7 +56,7 @@ const groups = [
       { pt: "errar", ru: "ошибаться" },
       { pt: "acertar", ru: "правильно ответить" },
       { pt: "aprender", ru: "выучить" },
-      { pt: "conversar", ru: "разговаривать" },
+      { pt: "conversar", ru: "разговаривать" }
     ]
   },
 
@@ -69,14 +69,55 @@ const groups = [
     words: [
       { pt: "fazer", ru: "делать" },
       { pt: "pegar", ru: "брать" },
-      { pt: "dar", ru: "давать" },
+      { pt: "largar", ru: "бросать" },
+      { pt: "dar / entregar", ru: "давать" },
+      { pt: "receber / aceitar", ru: "Принимать" },
       { pt: "usar", ru: "использовать" },
       { pt: "mudar", ru: "менять" },
+      { pt: "tentar", ru: "пытаться" },     
+      { pt: "abrir", ru: "открывать" },
+      { pt: "fechar", ru: "закрывать" },
       { pt: "tocar (instrumento)", ru: "играть" },
       { pt: "ligar (telefone)", ru: "звонить" },
-      { pt: "tentar", ru: "пытаться" },
-      { pt: "largar", ru: "бросать" },
       { pt: "acertar (alvo)", ru: "попадать" }
+    ]
+  },
+
+/* =====================
+     ROTINA / NECESSIDADES
+  ====================== */
+  {
+    id: "rotina",
+    label: "Rotina",
+    words: [
+      { pt: "comer", ru: "есть" },
+      { pt: "beber", ru: "пить" },
+      { pt: "dormir", ru: "спать" },
+      { pt: "acordar", ru: "просыпаться" },
+      { pt: "almoçar", ru: "обедать" },
+      { pt: "jantar", ru: "ужинать" },
+      { pt: "tomar banho", ru: "принимать душ" }
+    ]
+  },
+
+  /* =====================
+      COTIDIANO / ATIVIDADES
+  ====================== */
+  {
+    id: "cotidiano",
+    label: "Cotidiano",
+    words: [
+      { pt: "ser / estar", ru: "быть" },
+      { pt: "viver / morar", ru: "жить" },
+      { pt: "trabalhar", ru: "работать" },
+      { pt: "precisar", ru: "нуждаться" },
+      { pt: "querer", ru: "хотеть" },
+      { pt: "poder", ru: "мочь" },
+      { pt: "esperar", ru: "ждать" },
+      { pt: "comprar", ru: "покупать" },
+      { pt: "vender", ru: "продавать" },
+      { pt: "encontrar", ru: "находить" },
+      { pt: "perder", ru: "терять" }
     ]
   },
 
@@ -116,59 +157,10 @@ const groups = [
     ]
   },
 
-  /* =====================
-     ROTINA / NECESSIDADES
-  ====================== */
-  {
-    id: "rotina",
-    label: "Rotina",
-    words: [
-      { pt: "comer", ru: "есть" },
-      { pt: "beber", ru: "пить" },
-      { pt: "dormir", ru: "спать" },
-      { pt: "acordar", ru: "просыпаться" },
-      { pt: "almoçar", ru: "обедать" },
-      { pt: "jantar", ru: "ужинать" },
-      { pt: "tomar banho", ru: "принимать душ" }
-    ]
-  },
-
-  /* =====================
-     VIDA PRÁTICA
-  ====================== */
-  {
-    id: "vida",
-    label: "Vida Prática",
-    words: [
-      { pt: "ser", ru: "быть" },
-      { pt: "viver / morar", ru: "жить" },
-      { pt: "trabalhar", ru: "работать" },
-      { pt: "precisar", ru: "нуждаться" },
-      { pt: "querer", ru: "хотеть" },
-      { pt: "poder", ru: "мочь" },
-      { pt: "esperar", ru: "ждать" }
-    ]
-  },
-
-  /* =====================
-     OBJETOS / TAREFAS
-  ====================== */
-  {
-    id: "objetos",
-    label: "Objetos & Tarefas",
-    words: [
-      { pt: "comprar", ru: "покупать" },
-      { pt: "vender", ru: "продавать" },
-      { pt: "abrir", ru: "открывать" },
-      { pt: "fechar", ru: "закрывать" },
-      { pt: "encontrar", ru: "находить" },
-      { pt: "perder", ru: "терять" }
-    ]
-  },
 
   /* =====================
       CORPO HUMANO
-  ====================== */
+  ====================== 
   {
     id: "corpo",
     label: "Corpo Humano",
@@ -185,11 +177,11 @@ const groups = [
       { pt: "dedo", ru: "палец" },
       { pt: "cabelo", ru: "волосы" }
     ]
-  },
+  },*/
 
   /* =====================
      MOVIMENTO
-  ====================== */
+  ====================== 
   {
     id: "movimento",
     label: "Movimento",
@@ -203,11 +195,11 @@ const groups = [
       { pt: "viajar", ru: "путешествовать" },
       { pt: "ficar", ru: "оставаться" },
     ]
-  },
+  },*/
 
   /* =====================
        DIREÇÃO
-    ====================== */
+    ====================== 
   {
     id: "direção",
     label: "Direção",
@@ -219,7 +211,7 @@ const groups = [
       { pt: "frente", ru: "вперёд" },
       { pt: "trás", ru: "назад" }
     ]
-  },
+  },*/
 
   /* =====================
      NÚMEROS
