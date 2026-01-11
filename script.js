@@ -56,7 +56,8 @@ const groups = [
       { pt: "errar", ru: "ошибаться" },
       { pt: "acertar", ru: "правильно ответить" },
       { pt: "aprender", ru: "выучить" },
-      { pt: "conversar", ru: "разговаривать" }
+      { pt: "conversar", ru: "разговаривать" },
+      { pt: "chamar", ru: "звать" }
     ]
   },
 
@@ -79,7 +80,9 @@ const groups = [
       { pt: "fechar", ru: "закрывать" },
       { pt: "tocar (instrumento)", ru: "играть" },
       { pt: "ligar (telefone)", ru: "звонить" },
-      { pt: "acertar (alvo)", ru: "попадать" }
+      { pt: "acertar (alvo)", ru: "попадать" },
+      { pt: "começar", ru: "начинать" },
+      { pt: "terminar", ru: "заканчивать" }
     ]
   },
 
@@ -128,6 +131,7 @@ const groups = [
     id: "emocoes",
     label: "Emoções & Estados",
     words: [
+      { pt: "amar", ru: "любить" },
       { pt: "sorrir", ru: "улыбаться" },
       { pt: "rir", ru: "смеяться" },
       { pt: "chorar", ru: "плакать" },
