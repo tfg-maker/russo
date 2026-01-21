@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Russo – Fundamentos</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russo Prático - Fundamentos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section class="main">
-    <div class="app">
-      <div class="title">
-        <h1>Pronomes</h1>
-        <a href="index.html" class="tab">VERBOS</a>
-      </div>
 
-      <div class="tabs" id="typeToggle">
-        <div class="tab active" data-type="pessoais">Pessoais</div>
-        <div class="tab" data-type="possessivos">Possessivos</div>
-      </div>
+    <div id="menu-container"></div>
 
-      <div class="progress"><strong>FOCO:</strong> <div id="currentCategory">Pronomes Pessoais</div></div>
-      
-      <div class="list" id="pronounList"></div>
-    </div>
-  </section>
-  <script src="fundamentos.js"></script>
+    <section class="main">
+        <div class="app">
+            <div class="header-container">
+                <button id="menuToggle" class="menu-btn-inline">☰</button>
+                <div class="title">
+                    <h1>Fundamentos</h1>
+                </div>
+            </div>
+
+            <div class="tabs" id="typeToggle">
+                <div class="tab active" data-type="pessoais">Pessoais</div>
+                <div class="tab" data-type="possessivos">Possessivos (Masc)</div>
+            </div>
+
+            <div class="progress">
+                <strong>FOCO:</strong> <span id="currentCategory">Pronomes Pessoais</span>
+            </div>
+            
+            <div class="list" id="pronounList"></div>
+        </div>
+    </section>
+
+    <script src="menu.js"></script>
+    <script src="fundamentos.js"></script>
 </body>
-
 </html>
