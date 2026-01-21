@@ -1,62 +1,46 @@
-const datasets = {
-  pessoais: [
-    { pt: "eu", ru: "я" },
-    { pt: "você (informal)", ru: "ты" },
-    { pt: "ele", ru: "он" },
-    { pt: "ela", ru: "она" },
-    { pt: "isso (neutro)", ru: "оно" },
-    { pt: "nós", ru: "мы" },
-    { pt: "vocês / formal", ru: "вы" },
-    { pt: "eles / elas", ru: "они" }
-  ],
-  possessivos: [
-    { pt: "meu", ru: "мой" },
-    { pt: "teu", ru: "твой" },
-    { pt: "nosso", ru: "наш" },
-    { pt: "vosso / de vocês", ru: "ваш" },
-    { pt: "dele", ru: "его" },
-    { pt: "dela", ru: "её" },
-    { pt: "deles", ru: "их" }
-  ]
-};
-
 /***********************
  * DADOS
  ***********************/
 const groups = [
 
   /* =====================
-     PRONOMES
+     NÚMEROS
   ====================== */
   {
-    id: "pessoais",
-    label: "Pessoais",
+    id: "numeros",
+    label: "Números",
     words: [
-    { pt: "eu", ru: "я" },
-    { pt: "você (informal)", ru: "ты" },
-    { pt: "ele", ru: "он" },
-    { pt: "ela", ru: "она" },
-    { pt: "isso (neutro)", ru: "оно" },
-    { pt: "nós", ru: "мы" },
-    { pt: "vocês / formal", ru: "вы" },
-    { pt: "eles / elas", ru: "они" }
+      { pt: "0", ru: "ноль" },
+      { pt: "1", ru: "один" },
+      { pt: "2", ru: "два" },
+      { pt: "3", ru: "три" },
+      { pt: "4", ru: "четыре" },
+      { pt: "5", ru: "пять" },
+      { pt: "6", ru: "шесть" },
+      { pt: "7", ru: "семь" },
+      { pt: "8", ru: "восемь" },
+      { pt: "9", ru: "девять" },
+      { pt: "10", ru: "десять" },
+      { pt: "11", ru: "одиннадцать" },
+      { pt: "12", ru: "двенадцать" },
+      { pt: "13", ru: "тринадцать" },
+      { pt: "14", ru: "четырнадцать" },
+      { pt: "15", ru: "пятнадцать" },
+      { pt: "16", ru: "шестнадцать" },
+      { pt: "17", ru: "семнадцать" },
+      { pt: "18", ru: "восемнадцать" },
+      { pt: "19", ru: "девятнадцать" },
+      { pt: "20", ru: "двадцать" },
+      { pt: "30", ru: "тридцать" },
+      { pt: "40", ru: "сорок" },
+      { pt: "50", ru: "пятьдесят" },
+      { pt: "60", ru: "шестьдесят" },
+      { pt: "70", ru: "семьдесят" },
+      { pt: "80", ru: "восемьдесят" },
+      { pt: "90", ru: "девяносто" },
+      { pt: "100", ru: "сто" }
     ]
-  },
-
-  {
-    id: "possessivos",
-    label: "Possessivos",
-    words: [
-      { pt: "eu", ru: "я" },
-    { pt: "você (informal)", ru: "ты" },
-    { pt: "ele", ru: "он" },
-    { pt: "ela", ru: "она" },
-    { pt: "isso (neutro)", ru: "оно" },
-    { pt: "nós", ru: "мы" },
-    { pt: "vocês / formal", ru: "вы" },
-    { pt: "eles / elas", ru: "они" }
-    ]
-  },
+  }
 
 ];
 
