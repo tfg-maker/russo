@@ -32,14 +32,14 @@ const groups = [
     id: "pessoais",
     label: "Pessoais",
     words: [
-    { pt: "eu", ru: "я" },
-    { pt: "você (informal)", ru: "ты" },
-    { pt: "ele", ru: "он" },
-    { pt: "ela", ru: "она" },
-    { pt: "isso (neutro)", ru: "оно" },
-    { pt: "nós", ru: "мы" },
-    { pt: "vocês / formal", ru: "вы" },
-    { pt: "eles / elas", ru: "они" }
+      { pt: "eu", ru: "я" },
+      { pt: "você (informal)", ru: "ты" },
+      { pt: "ele", ru: "он" },
+      { pt: "ela", ru: "она" },
+      { pt: "isso (neutro)", ru: "оно" },
+      { pt: "nós", ru: "мы" },
+      { pt: "vocês / você (formal)", ru: "вы" },
+      { pt: "eles / elas", ru: "они" }
     ]
   },
 
@@ -47,14 +47,13 @@ const groups = [
     id: "possessivos",
     label: "Possessivos",
     words: [
-      { pt: "eu", ru: "я" },
-    { pt: "você (informal)", ru: "ты" },
-    { pt: "ele", ru: "он" },
-    { pt: "ela", ru: "она" },
-    { pt: "isso (neutro)", ru: "оно" },
-    { pt: "nós", ru: "мы" },
-    { pt: "vocês / formal", ru: "вы" },
-    { pt: "eles / elas", ru: "они" }
+      { pt: "meu", ru: "мой" },
+      { pt: "teu", ru: "твой" },
+      { pt: "nosso", ru: "наш" },
+      { pt: "vosso / de vocês", ru: "ваш" },
+      { pt: "dele", ru: "его" },
+      { pt: "dela", ru: "её" },
+      { pt: "deles", ru: "их" }
     ]
   },
 
