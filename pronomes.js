@@ -34,28 +34,63 @@ const groups = [
     words: [
       { pt: "eu", ru: "я" },
       { pt: "você (informal)", ru: "ты" },
+      { pt: "vocês / você (formal)", ru: "вы" },
+      { pt: "nós", ru: "мы" },
       { pt: "ele", ru: "он" },
       { pt: "ela", ru: "она" },
-      { pt: "isso (neutro)", ru: "оно" },
-      { pt: "nós", ru: "мы" },
-      { pt: "vocês / você (formal)", ru: "вы" },
-      { pt: "eles / elas", ru: "они" }
+      { pt: "eles / elas", ru: "они" },
+      { pt: "isso (neutro)", ru: "оно" }
+
     ]
   },
 
   {
-    id: "possessivos",
-    label: "Possessivos",
-    words: [
-      { pt: "meu", ru: "мой" },
-      { pt: "teu", ru: "твой" },
-      { pt: "nosso", ru: "наш" },
-      { pt: "vosso / de vocês", ru: "ваш" },
-      { pt: "dele", ru: "его" },
-      { pt: "dela", ru: "её" },
-      { pt: "deles", ru: "их" }
-    ]
-  },
+  id: "possessivos_pessoais",
+  label: "Possessivos Pessoais",
+  words: [
+    { pt: "meu", ru: "мой" },
+    { pt: "minha", ru: "моя" },
+    { pt: "meu / minha (neutro)", ru: "моё" },
+    { pt: "meus / minhas", ru: "мои" },
+
+    { pt: "teu", ru: "твой" },
+    { pt: "tua", ru: "твоя" },
+    { pt: "teu / tua (neutro)", ru: "твоё" },
+    { pt: "teus / tuas", ru: "твои" },
+
+    { pt: "nosso", ru: "наш" },
+    { pt: "nossa", ru: "наша" },
+    { pt: "nosso / nossa (neutro)", ru: "наше" },
+    { pt: "nossos / nossas", ru: "наши" },
+
+    { pt: "vosso (de vocês)", ru: "ваш" },
+    { pt: "vossa (de vocês)", ru: "ваша" },
+    { pt: "vosso / vossa (neutro)", ru: "ваше" },
+    { pt: "vossos / vossas", ru: "ваши" }
+  ]
+},
+
+{
+  id: "possessivos_terceira_pessoa",
+  label: "Dele / Dela / Deles",
+  words: [
+    { pt: "dele (invariável)", ru: "его" },
+    { pt: "dela (invariável)", ru: "её" },
+    { pt: "deles / delas (invariável)", ru: "их" }
+  ]
+},
+
+{
+  id: "possessivo_reflexivo",
+  label: "Seu Próprio (Sujeito)",
+  words: [
+    { pt: "seu / sua (do próprio sujeito)", ru: "свой" },
+    { pt: "sua (feminino, do próprio sujeito)", ru: "своя" },
+    { pt: "seu / sua (neutro, do próprio sujeito)", ru: "своё" },
+    { pt: "seus / suas (do próprio sujeito)", ru: "свои" }
+  ]
+}
+
 
 ];
 
