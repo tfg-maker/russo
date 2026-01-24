@@ -72,7 +72,7 @@ const groups = [
 
 {
   id: "possessivos_terceira_pessoa",
-  label: "Dele / Dela / Deles",
+  label: "Possessivos Terceira Pessoa",
   words: [
     { pt: "dele (invariável)", ru: "его" },
     { pt: "dela (invariável)", ru: "её" },
@@ -82,7 +82,7 @@ const groups = [
 
 {
   id: "possessivo_reflexivo",
-  label: "Seu Próprio (Sujeito)",
+  label: "Possessivo Reflexivo",
   words: [
     { pt: "seu / sua (do próprio sujeito)", ru: "свой" },
     { pt: "sua (feminino, do próprio sujeito)", ru: "своя" },
