@@ -1,25 +1,3 @@
-const datasets = {
-  pessoais: [
-    { pt: "eu", ru: "я" },
-    { pt: "você (informal)", ru: "ты" },
-    { pt: "ele", ru: "он" },
-    { pt: "ela", ru: "она" },
-    { pt: "isso (neutro)", ru: "оно" },
-    { pt: "nós", ru: "мы" },
-    { pt: "vocês / formal", ru: "вы" },
-    { pt: "eles / elas", ru: "они" }
-  ],
-  possessivos: [
-    { pt: "meu", ru: "мой" },
-    { pt: "teu", ru: "твой" },
-    { pt: "nosso", ru: "наш" },
-    { pt: "vosso / de vocês", ru: "ваш" },
-    { pt: "dele", ru: "его" },
-    { pt: "dela", ru: "её" },
-    { pt: "deles", ru: "их" }
-  ]
-};
-
 /***********************
  * DADOS
  ***********************/
@@ -40,7 +18,6 @@ const groups = [
       { pt: "ela", ru: "она" },
       { pt: "eles / elas", ru: "они" },
       { pt: "isso (neutro)", ru: "оно" }
-
     ]
   },
 
@@ -84,10 +61,10 @@ const groups = [
   id: "possessivo_reflexivo",
   label: "Possessivo Reflexivo",
   words: [
-    { pt: "seu / sua (do próprio sujeito)", ru: "свой" },
-    { pt: "sua (feminino, do próprio sujeito)", ru: "своя" },
-    { pt: "seu / sua (neutro, do próprio sujeito)", ru: "своё" },
-    { pt: "seus / suas (do próprio sujeito)", ru: "свои" }
+    { pt: "masculino, do próprio sujeito", ru: "свой" },
+    { pt: "feminino, do próprio sujeito", ru: "своя" },
+    { pt: "neutro, do próprio sujeito", ru: "своё" },
+    { pt: "plural, do próprio sujeito", ru: "свои" }
   ]
 }
 
