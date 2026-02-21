@@ -1,0 +1,53 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Russo – Estudo por Grupos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="menu-container"></div>
+
+    <section class="main">
+        <div class="app">
+            <div class="header-container">
+                <button id="menuToggle" class="menu-btn-inline">☰</button>
+                <div class="title">
+                    <h1>Alfabeto</h1>
+                </div>
+                <button id="resetAll" title="Resetar progresso">RESET</button>
+            </div>
+
+            <div class="tabs" id="fundamentosToggle">
+                <div class="tab active" data-type="alfabeto">Alfabeto</div>
+                <div class="tab" data-type="escrita">Praticar Escrita</div>
+            </div>
+
+            <div id="progresso-wrapper" style="display: none; margin-bottom: 20px;">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span>Letras Dominadas</span>
+                        <span id="progress-percent">0%</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-fill" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="grid-container" class="grid-layout">
+            </div>
+
+        </div>
+    </section>
+
+    <!--script src="menu.js"></script-->
+    <script src="alfabeto.js"></script>
+
+</body>
+
+</html>

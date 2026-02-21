@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* BASE --------------------------------------------------------*/
 
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -40,6 +41,9 @@ a{text-decoration: none; color: #000;}
   height: 22px;
 }
 
+
+/* TABS --------------------------------------------------------*/
+
 .tabs {
   display: flex;
   gap: 8px;
@@ -67,6 +71,9 @@ a{text-decoration: none; color: #000;}
   border-color: #000;
   color: #fff;
 }
+
+
+/* WORDS --------------------------------------------------------*/
 
 .word {
   display: flex;
@@ -107,7 +114,6 @@ a{text-decoration: none; color: #000;}
   border: 2px solid #f4b400;
   background: #f4b40022;
 }
-
 
 .word button {
   padding: 6px;
@@ -153,6 +159,325 @@ a{text-decoration: none; color: #000;}
   gap: 0.5rem;
   font-size: 0.875rem;
 }
+
+
+/* CARDS --------------------------------------------------------*/
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.card-alfabeto {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-bottom: 4px solid #ddd; /* Cor muda conforme o tipo */
+}
+
+.card-alfabeto h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #222;
+}
+
+.card-alfabeto p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Cores do Alfabeto */
+.card-alfabeto.vogal { border-bottom-color: #ffd700; }
+.card-alfabeto.consoante { border-bottom-color: #0039a6; }
+.card-alfabeto.sinal { border-bottom-color: #555; }
+
+.card-alfabeto:active { transform: scale(0.95); }
+
+.card-alfabeto {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.audio-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.btn-group {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-group button {
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Botão quando selecionado */
+.btn-group button.selected {
+    background: #222;
+    color: white;
+    border-color: #222;
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+/* Ajuste sutil no hover para não confundir com o selecionado */
+.btn-group button:hover:not(.selected) {
+    background: #e0e0e0;
+}
+
+/* Feedback Visual */
+.card-alfabeto.correct {
+    border: 2px solid #4CAF50;
+    background: #e8f5e9;
+}
+
+.card-alfabeto.wrong {
+    border: 2px solid #f44336;
+    background: #ffebee;
+    transform: rotate(-3deg);
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+.card-genero h3 { margin: 0; color: #222; }
+.regra { color: #666; font-weight: bold; margin: 10px 0; }
+.exemplos { display: flex; gap: 10px; flex-wrap: wrap; }
+.exemplos span { 
+    background: #f0f0f0; 
+    padding: 5px 12px; 
+    border-radius: 20px; 
+    font-size: 14px; 
+}
+
+/* GENEROS -----------------------------------------------------------*/
+
+.generos-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.card-genero {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.word-info h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.word-info span {
+    color: #888;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.btn-group-genero {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn-group-genero button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Botões circulares ficam ótimos aqui */
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Reutilizando as cores de seleção que definimos antes */
+.btn-group-genero button.selected {
+    background: #222;
+    color: white;
+    transform: scale(1.1);
+}
+
+
+.card-genero.wrong { background-color: #ffebee; border-color: #f44336; transform: rotate(-3deg);}
+[data-answer=m].correct{ background-color: #e9f4fffc; border-color: #82c5fcfc; }
+[data-answer=f].correct{ background-color: rgb(252 233 243); border-color: #fe94ca; }
+[data-answer=n].correct{ background-color: #ffefe4; border-color: #efbfa0; }
+
+
+.alfabeto-input {
+    width: 80%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+.alfabeto-input.ok {
+    border-color: #4CAF50;
+    background: #e8f5e9;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+/* Transição suave para a cor do card nos gêneros */
+.card-genero {
+    transition: background-color 0.5s ease, border 0.3s ease, trasform 0.3s ease;
+}
+
+.escrito-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+}
+
+.grupo-escrita h3 {
+    border-left: 5px solid #222;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.grupo-escrita h3 span {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: normal;
+}
+
+.cards-escrita {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.card-mini-escrita {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.som-guia {
+    display: block;
+    font-size: 0.7rem;
+    color: #999;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.card-mini-escrita input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #eee;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    outline: none;
+    background: transparent;
+}
+
+/* Quando acerta, o card "brilha" e fixa a cor */
+.card-mini-escrita.fixed-success {
+    background: #e8f5e9;
+    border-color: #4CAF50;
+}
+
+.card-mini-escrita.fixed-success input {
+    color: #2e7d32;
+    border-bottom: none;
+}
+
+.progress-container {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-fill {
+    height: 100%;
+    background: #4CAF50;
+    width: 0%;
+    transition: width 0.4s ease-out, background-color 0.5s;
+}
+
+.card-genero {
+    position: relative; /* Para o ícone se posicionar em relação ao card */
+}
+
+.audio-icon-genero {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.audio-icon-genero:hover {
+    opacity: 1;
+}
+
+/* RESPONSIVE --------------------------------------------------------*/
 
 @media (max-width: 600px) {
 
